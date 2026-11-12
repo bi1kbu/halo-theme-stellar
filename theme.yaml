@@ -2,10 +2,6 @@ apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
   name: theme-stellar
-  annotations:
-    # Add supports for Halo App Store
-    # https://www.halo.run/store/apps/app-KxJeQ
-    "store.halo.run/app-id": "app-KxJeQ"
 spec:
   customTemplates:
     page:
@@ -18,20 +14,20 @@ spec:
         description:
         screenshot:
         file: topic.html
-  displayName: Stellar
+  displayName: Stellar-LTS
   author:
-    name: 困困鱼
-    website: "https://github.com/chengzhongxue"
-  description: 内置文档系统的简约商务风Halo主题，支持大量的标签组件和动态数据组件。
+    name: bi1kbu
+    website: "https://github.com/bi1kbu"
+  description: 基于困困鱼的 Halo Stellar 主题，由 bi1kbu 独立维护的非官方长期支持版本。内置文档系统，支持标签组件和动态数据组件。
   logo: "/themes/theme-stellar/assets/img/icon.svg"
-  homepage: "https://www.halo.run/store/apps/app-KxJeQ"
-  repo: "https://github.com/chengzhongxue/halo-theme-stellar"
-  issues: "https://github.com/chengzhongxue/halo-theme-stellar/issues"
+  homepage: "https://github.com/bi1kbu/halo-theme-stellar"
+  repo: "https://github.com/bi1kbu/halo-theme-stellar"
+  issues: "https://github.com/bi1kbu/halo-theme-stellar/issues"
   settingName: "theme-stellar-setting"
   configMapName: "theme-stellar-configMap"
   version: "1.1.2"
   requires: ">=2.22.1"
   license:
     - name: "MIT license"
-      url: "https://github.com/chengzhongxue/halo-theme-stellar/blob/main/LICENSE"
+      url: "https://github.com/bi1kbu/halo-theme-stellar/blob/main/LICENSE"
   

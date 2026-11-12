@@ -86,7 +86,7 @@ utils.jq(() => {
           memos.data = data.memos;
         } else {
           memos.version = "feature";
-          console.log("当前Memos版本过高，请到Stellar社区反馈");
+          console.log("当前 Memos 版本过高，请到 Stellar-LTS 仓库反馈：https://github.com/bi1kbu/halo-theme-stellar/issues");
         }
         return memos
       }
