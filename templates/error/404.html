@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
-    th:replace="~{modules/layout :: html(head = null,content = ~{::content},_left = ~{::left},_right = ~{::right},page_type = 'index',layout = '404',_title = '404',_type = null,_indent = null)}">
+    th:replace="~{modules/layout :: html(head = ~{::head},content = ~{::content},_left = ~{::left},_right = ~{::right},page_type = 'index',layout = '404',_title = '404',_type = null,_indent = null)}">
+
+<th:block th:fragment="head" th:if="${pluginFinder.available('PluginSearchWidget')}">
+    <!-- Halo 错误页不自动注入插件资源，按需加载搜索组件。 -->
+    <link rel="stylesheet" href="/plugins/PluginSearchWidget/assets/static/style.css">
+    <script src="/plugins/PluginSearchWidget/assets/static/search-widget.iife.js" defer></script>
+</th:block>
 
 <th:block th:fragment="left">
     <th:block

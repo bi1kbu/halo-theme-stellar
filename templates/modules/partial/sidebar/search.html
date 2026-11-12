@@ -1,5 +1,5 @@
-<div class="search-wrapper" id="search-wrapper">
-    <form class="search-form" onclick="javascript:SearchWidget.open()">
+<div class="search-wrapper" id="search-wrapper" th:if="${pluginFinder.available('PluginSearchWidget')}">
+    <form class="search-form" onclick="window.SearchWidget?.open()" onsubmit="return false">
         <a class="search-button"><svg t="1705074644177"
                 viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200"
                 height="200">
