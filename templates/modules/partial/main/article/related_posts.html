@@ -17,8 +17,8 @@
                        class="item" th:href="@{${recommandPost.status.permalink}}" th:title="${recommandPost.spec.title}">
                         <span class="title" th:text="${recommandPost.spec.title}"></span>
                         <span class="excerpt"
-                              th:if="${!recommandPost.spec.excerpt.autoGenerate}"
-                              th:text="${recommandPost.spec.excerpt.raw}"></span>
+                              th:if="${not #strings.isEmpty(recommandPost.status.excerpt)}"
+                              th:text="${recommandPost.status.excerpt}"></span>
                     </a>
                 </th:block>
             </div>
