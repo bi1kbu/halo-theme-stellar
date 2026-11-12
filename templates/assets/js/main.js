@@ -104,6 +104,7 @@ const init = {
       });
       $("#dynamic-toc").empty();
       if(segs.length>0) {
+        const ancestors = [];
         segs.forEach((seg) => {
           const level = parseInt(seg.tagName.slice(1)); //  获取标题级别（如h1, h2, h3等）
           const text = $(seg).text(); //  获取标题文本
@@ -113,20 +114,22 @@ const init = {
           const li = $('<li>', { class: `toc-item toc-level-${level}` });
           const a = $('<a>', { class: 'toc-link', href: `#${id}`, text: text });
           li.append(a);
-          if (level >  2) {
-            const parentLi = $(`#dynamic-toc .toc-level-${level -  1}`).last();
-            if (parentLi.length >  0) {
-              let ol = parentLi.children('ol');
-              if (ol.length ===  0) {
-                ol = $('<ol>', { class: 'toc-child' });
-                parentLi.append(ol);
-              }
-              ol.append(li);
+          // 挂到当前章节最近的上级标题，允许标题从任意级别开始或跨级。
+          while (ancestors.length && ancestors[ancestors.length - 1].level >= level) {
+            ancestors.pop();
+          }
+          if (ancestors.length) {
+            const parentLi = ancestors[ancestors.length - 1].li;
+            let ol = parentLi.children('ol');
+            if (ol.length === 0) {
+              ol = $('<ol>', { class: 'toc-child' });
+              parentLi.append(ol);
             }
+            ol.append(li);
           } else {
-            //  否则，直接将目录项添加到目录中
             $("#dynamic-toc").append(li);
           }
+          ancestors.push({ level, li });
         })
       }else {
         $("#data-toc div.dis-select").remove()
