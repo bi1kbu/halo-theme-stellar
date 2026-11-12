@@ -11,7 +11,7 @@
                     <span th:text="${#dates.format(moment.spec.releaseTime, 'yyyy/MM/dd HH:mm:ss')}"></span>
                 </div>
                 <div class="body" th:with="content=${moment.spec.content}">
-                    <th:block th:utext="${content.html}"></th:block>
+                    <th:block th:replace="~{modules/partial/moment-content :: content(${content})}"></th:block>
                 </div>
             </div>
         </div>

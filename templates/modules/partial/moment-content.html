@@ -1,0 +1,8 @@
+<th:block th:fragment="content(content)">
+    <th:block th:utext="${content.html}"></th:block>
+    <th:block th:each="medium : ${content.medium}">
+        <p th:if="${#strings.equals(medium.type, 'PHOTO') && not #strings.isEmpty(medium.url)}">
+            <img th:src="${medium.url}" loading="lazy" alt="">
+        </p>
+    </th:block>
+</th:block>
