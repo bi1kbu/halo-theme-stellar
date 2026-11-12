@@ -43,7 +43,7 @@
             <div class="nav-tabs">
                 <div th:each="tag,iStat : ${tags}" class="moment-tab"
                     th:classappend="${#lists.contains(param.tag, tag.name) ? 'active' : ''}">
-                    <a th:href="|/moments?tag=${tag.name}|">[[${tag.name}]]</a>
+                    <a th:href="@{/moments(tag=${tag.name})}">[[${tag.name}]]</a>
                 </div>
             </div>
             <div class="tab-content">
